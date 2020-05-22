@@ -11,14 +11,17 @@ require 'pry'
 require_relative 'cards'
 require_relative 'deck'
 require_relative 'dice'
-require_relative 'bankroll'
-require_relative 'user'
 require_relative 'slots'
 require_relative 'blackjack'
 require_relative 'high_low'
 
-puts "Hello #{user} your bankroll is #{@bankroll} "
-puts ""
+puts "Welcome to SLC Casino"
+@bankroll= rand(100...1000)
+puts "What is your name?"
+user = gets.strip
+
+puts "Hello #{user} your bankroll is $#{@bankroll} "
+puts main_menu
 
 def main_menu
   
@@ -32,6 +35,7 @@ end
 
 def user_selection
   choice = gets.to_i
+  case choice
   when 1
     slots
   when 2
@@ -44,3 +48,4 @@ def user_selection
     exit
   end
 end
+
