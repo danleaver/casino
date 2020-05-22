@@ -19,9 +19,8 @@ puts "Welcome to SLC Casino"
 @bankroll= rand(100...1000)
 puts "What is your name?"
 user = gets.strip
-
 puts "Hello #{user} your bankroll is $#{@bankroll} "
-puts main_menu
+
 
 def main_menu
   
@@ -34,6 +33,7 @@ def main_menu
 end
 
 def user_selection
+  main_menu
   choice = gets.to_i
   case choice
   when 1
@@ -43,9 +43,13 @@ def user_selection
   when 3
     high_low
   when 4
-    bankroll
+    puts "$#{@bankroll}"
   when 5
     exit
   end
 end
+
+user_selection
+
+main_menu
 
