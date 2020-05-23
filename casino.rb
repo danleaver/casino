@@ -47,6 +47,7 @@ def user_selection
   when 5
     exit
   end
+  user_selection
 end
 
 user_selection
