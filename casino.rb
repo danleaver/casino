@@ -15,12 +15,12 @@ require_relative 'slots'
 require_relative 'blackjack'
 require_relative 'high_low'
 
+
 puts "Welcome to SLC Casino"
 @bankroll= rand(100...1000)
 puts "What is your name?"
 user = gets.strip
 puts "Hello #{user} your bankroll is $#{@bankroll} "
-
 
 def main_menu
   
@@ -47,6 +47,7 @@ def user_selection
   when 5
     exit
   end
+  user_selection
 end
 
 user_selection
