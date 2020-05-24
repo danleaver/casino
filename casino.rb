@@ -39,7 +39,8 @@ def user_selection
   choice = gets.to_i
   case choice
   when 1
-    slots
+    slots = Slots.new(@bankroll)
+    slots.game_play
   when 2
     blackjack
   when 3
