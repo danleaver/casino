@@ -1,3 +1,4 @@
+class HighLow
 #create a menu
 #explain the rules of the game
 #explain how the game pays out when you win 
@@ -12,8 +13,13 @@ require_relative 'deck'
 #ask the player how much they want to bet
 
 #Start the game
+#bankroll is a variable that is passed in
+def initialize(bankroll) 
+  @bankroll = bankroll
+end
 
-def high_low
+
+def play_game
     place_bet
     start_game
     user_guess
@@ -21,11 +27,11 @@ def high_low
     facecards_to_numbers_secondcard
     game_winner
     user_win_lost
-end 
+end
 
 #place a bet, check that it is a number and isn't greater then the bankroll
 def place_bet  
-puts "You have $#{@bankroll}, place your bet."
+puts "You have #{@bankroll.rounded_balance}, place your bet."
   bet=gets.strip
   @bet= Float(bet) rescue false
   until @bet
@@ -33,7 +39,7 @@ puts "You have $#{@bankroll}, place your bet."
     bet= gets.strip
     @bet= Float(bet) rescue false
   end
-    until @bet<=@bankroll
+    until @bet<=@bankroll.balance
       puts "You don't have enough money"
       place_bet
     end
@@ -113,17 +119,15 @@ end
   def user_win_lost
     if @winner == @guess
       puts "You are a winner!"
-      @bankroll = @bankroll + @bet
-      puts @bankroll
+      @bankroll.balance = @bankroll.balance + @bet
+      puts @bankroll.rounded_balance
     else
       puts "You lost"
-      @bankroll = @bankroll - @bet
-      puts @bankroll
+      @bankroll.balance = @bankroll.balance - @bet
+      puts @bankroll.rounded_balance
     end
   end
-
-
-
+end
 
 
 

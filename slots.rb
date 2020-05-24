@@ -49,7 +49,5 @@ def winning_set
   puts "#{@col_1[0..2]}\n#{@col_2[0..2]}\n#{@col_3[0..2]}"
 end
 
-# main_menu
-# user_selection
 
 game_play
