@@ -41,7 +41,8 @@ def user_selection
     slots = Slots.new(@bankroll)
     slots.game_play
   when 2
-    coinflip
+    coinflip = Coinflip.new(@bankroll)
+    coinflip.start_game
   when 3
      newhighlow = HighLow.new(@bankroll)
      newhighlow.play_game
