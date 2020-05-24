@@ -13,6 +13,11 @@ require_relative 'deck'
 #ask the player how much they want to bet
 
 #Start the game
+#bankroll is a variable that is passed in
+def initialize(bankroll) 
+  @bankroll = bankroll
+end
+
 
 def play_game
     place_bet
@@ -26,15 +31,15 @@ end
 
 #place a bet, check that it is a number and isn't greater then the bankroll
 def place_bet  
-puts "You have $#{@@bankroll}, place your bet."
+puts "You have #{@bankroll.rounded_balance}, place your bet."
   bet=gets.strip
-  @@bet= Float(bet) rescue false
-  until @@bet
+  @bet= Float(bet) rescue false
+  until @bet
     puts "Bet must be a number"
     bet= gets.strip
-    @@bet= Float(bet) rescue false
+    @bet= Float(bet) rescue false
   end
-    until @@bet<=@@bankroll
+    until @bet<=@bankroll.balance
       puts "You don't have enough money"
       place_bet
     end
@@ -58,7 +63,7 @@ unless guess == "High"|| guess=="Low"
   puts "You must guess High or Low"
   guess=gets.strip.capitalize
 end
-@@guess = guess
+@guess = guess
 puts "The second card is the #{@shuffled_deck[1].rank} of #{@shuffled_deck[1].suit}"
 end
  
@@ -112,14 +117,14 @@ end
 
   #tells the planner if they won or lost and adds or subtracts from their bankroll
   def user_win_lost
-    if @winner == @@guess
+    if @winner == @guess
       puts "You are a winner!"
-      @@bankroll = @@bankroll + @@bet
-      puts @@bankroll
+      @bankroll.balance = @bankroll.balance + @bet
+      puts @bankroll.rounded_balance
     else
       puts "You lost"
-      @@bankroll = @@bankroll - @@bet
-      puts @@bankroll
+      @bankroll.balance = @bankroll.balance - @bet
+      puts @bankroll.rounded_balance
     end
   end
 end

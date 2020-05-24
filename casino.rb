@@ -14,13 +14,15 @@ require_relative 'dice'
 require_relative 'slots'
 require_relative 'blackjack'
 require_relative 'high_low'
+require_relative 'bankroll'
 
 
 puts "Welcome to SLC Casino"
-@@bankroll= rand(100...1000)
+@bankroll=Bankroll.new
+
 puts "What is your name?"
 user = gets.strip
-puts "Hello #{user} your bankroll is $#{@@bankroll} "
+puts "Hello #{user} your bankroll is #{@bankroll.rounded_balance} "
 
 def main_menu
   
@@ -41,10 +43,10 @@ def user_selection
   when 2
     blackjack
   when 3
-     newhighlow = HighLow.new
+     newhighlow = HighLow.new(@bankroll)
      newhighlow.play_game
   when 4
-    puts "$#{@bankroll}"
+    puts @bankroll.rounded_balance
   when 5
     exit
   end
