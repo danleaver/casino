@@ -1,4 +1,4 @@
-class Slots
+
 ### Game Rules ###
 # Three Row, Three Column (5 options) --> 3 pay off lines per spin --> 1 horizontal and 2 diagnols
 
@@ -76,5 +76,5 @@ end
 main_menu
 user_selection
 
-end
+
 
