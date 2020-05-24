@@ -8,6 +8,7 @@ class Deck
     @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
     @suits = %w(Spades Diamonds Clubs Hearts)
     @cards = []
+    @value = []
     generate_deck
   end
  
@@ -31,4 +32,3 @@ class Deck
      end
    end
  end
- 

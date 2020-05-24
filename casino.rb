@@ -12,7 +12,7 @@ require_relative 'cards'
 require_relative 'deck'
 require_relative 'dice'
 require_relative 'slots'
-require_relative 'blackjack'
+require_relative 'coin_flip'
 require_relative 'high_low'
 
 
@@ -23,9 +23,8 @@ user = gets.strip
 puts "Hello #{user} your bankroll is $#{@bankroll} "
 
 def main_menu
-  
   puts "1) Play Slots"
-  puts "2) Play Black Jack"
+  puts "2) Play Coin Flip"
   puts "3) Play High/Low" 
   puts "4) Amount in Bankroll"
   puts "5) Exit"
@@ -39,7 +38,7 @@ def user_selection
   when 1
     slots
   when 2
-    blackjack
+    coinflip
   when 3
     high_low
   when 4
