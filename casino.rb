@@ -41,7 +41,7 @@ def user_selection
   when 2
     blackjack
   when 3
-    high_low
+    HighLow.new
   when 4
     puts "$#{@bankroll}"
   when 5

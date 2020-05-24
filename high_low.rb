@@ -13,7 +13,7 @@ require_relative 'deck'
 
 #Start the game
 
-def high_low
+module HighLow
     place_bet
     start_game
     user_guess
@@ -21,7 +21,7 @@ def high_low
     facecards_to_numbers_secondcard
     game_winner
     user_win_lost
-end 
+
 
 #place a bet, check that it is a number and isn't greater then the bankroll
 def place_bet  
@@ -121,8 +121,7 @@ end
       puts @bankroll
     end
   end
-
-
+end
 
 
 
