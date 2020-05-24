@@ -1,3 +1,4 @@
+class HighLow
 #create a menu
 #explain the rules of the game
 #explain how the game pays out when you win 
@@ -13,7 +14,7 @@ require_relative 'deck'
 
 #Start the game
 
-module HighLow
+def play_game
     place_bet
     start_game
     user_guess
@@ -21,19 +22,19 @@ module HighLow
     facecards_to_numbers_secondcard
     game_winner
     user_win_lost
-
+end
 
 #place a bet, check that it is a number and isn't greater then the bankroll
 def place_bet  
-puts "You have $#{@bankroll}, place your bet."
+puts "You have $#{@@bankroll}, place your bet."
   bet=gets.strip
-  @bet= Float(bet) rescue false
-  until @bet
+  @@bet= Float(bet) rescue false
+  until @@bet
     puts "Bet must be a number"
     bet= gets.strip
-    @bet= Float(bet) rescue false
+    @@bet= Float(bet) rescue false
   end
-    until @bet<=@bankroll
+    until @@bet<=@@bankroll
       puts "You don't have enough money"
       place_bet
     end
@@ -57,7 +58,7 @@ unless guess == "High"|| guess=="Low"
   puts "You must guess High or Low"
   guess=gets.strip.capitalize
 end
-@guess = guess
+@@guess = guess
 puts "The second card is the #{@shuffled_deck[1].rank} of #{@shuffled_deck[1].suit}"
 end
  
@@ -111,18 +112,17 @@ end
 
   #tells the planner if they won or lost and adds or subtracts from their bankroll
   def user_win_lost
-    if @winner == @guess
+    if @winner == @@guess
       puts "You are a winner!"
-      @bankroll = @bankroll + @bet
-      puts @bankroll
+      @@bankroll = @@bankroll + @@bet
+      puts @@bankroll
     else
       puts "You lost"
-      @bankroll = @bankroll - @bet
-      puts @bankroll
+      @@bankroll = @@bankroll - @@bet
+      puts @@bankroll
     end
   end
 end
-
 
 
 
