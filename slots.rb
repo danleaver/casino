@@ -7,18 +7,18 @@
 # 3. quarter
 # 4. dollar
 class Slots
-# Slot Machine Array # --> 5 combinations
-@column_options = [1, 2, 3, 4, 5]
-
-puts "\nWelcome to the Slot Machines!\n"
-
-### Impliment ###
-# 1.) jackpot
-# 2.) number of spins
-# 3.) types of slots (penny, nickle, quarter, dollar)
-
+  
+  ### Impliment ###
+  # 1.) jackpot
+  # 2.) number of spins
+  # 3.) types of slots (penny, nickle, quarter, dollar)
+  
   def initialize(bankroll) 
     @bankroll = bankroll
+    # Slot Machine Array # --> 5 combinations
+    @column_options = [1, 2, 3, 4, 5]
+    
+    puts "\nWelcome to the Slot Machines!\n"
   end
 
   def game_play
