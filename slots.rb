@@ -8,9 +8,8 @@
 # 4. dollar
 class Slots
 # Slot Machine Array # --> 5 combinations
-@column_options = [1, 2, 3, 4, 5]
 
-puts "\nWelcome to the Slot Machines!\n"
+
 
 ### Impliment ###
 # 1.) jackpot
@@ -19,7 +18,11 @@ puts "\nWelcome to the Slot Machines!\n"
 
   def initialize(bankroll) 
     @bankroll = bankroll
+    @column_options = [1, 2, 3, 4, 5]
+    puts "\nWelcome to the Slot Machines!\n"
   end
+
+  @column_options = [1, 2, 3, 4, 5]
 
   def game_play
     # puts "How many times do you want to spin"
