@@ -21,8 +21,6 @@ class Slots
     puts "\nWelcome to the Slot Machines!\n"
   end
 
-  @column_options = [1, 2, 3, 4, 5]
-
   def game_play
     # puts "How many times do you want to spin"
     # spin_times = gets.chomp.to_i
