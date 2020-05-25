@@ -39,7 +39,7 @@ def user_selection
   case choice
   when 1
     slots = Slots.new(@bankroll)
-    slots.game_play
+    slots.user_selection
   when 2
     coinflip = Coinflip.new(@bankroll)
     coinflip.start_game
