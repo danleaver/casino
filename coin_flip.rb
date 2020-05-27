@@ -38,7 +38,7 @@ require 'colorize'
 
     if @coin.sample == @user_choice
       puts "WINNER".colorize(:green)
-      @bankroll.balance += @bet1 * 2
+      @bankroll.balance += @bet1 * 10
     else
       puts "You lost".colorize(:red)
       @bankroll.balance -= @bet1
