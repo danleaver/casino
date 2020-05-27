@@ -27,6 +27,7 @@ def play_game
     facecards_to_numbers_secondcard
     game_winner
     user_win_lost
+    play_again
 end
 
 #place a bet, check that it is a number and isn't greater then the bankroll
@@ -155,6 +156,15 @@ end
   end
 end
 
+def play_again
+  puts "Would you like to play again? (Y/N)"
+  play=gets.strip.capitalize
+  if play=="Y"
+    play_game
+  else
+      user_selection
+  end
+end
 
 
 
