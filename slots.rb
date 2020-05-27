@@ -19,7 +19,7 @@ class Slots
     @bankroll = bankroll
   end
 
-  def main_menu
+  def main_menu_slots
     puts "________________________________________________"
     puts "Welcome to the dollar Slots Area!"
     puts "Winning numbers recieve 5 times the play amount!"
@@ -30,11 +30,11 @@ class Slots
     puts "1) Single Payout Slot ($1.00 per spin)"
     puts "2) Three Payout Slot ($3.00 per spin)"
     puts "3) Five Payout Slot ($5.00 per spin)" 
-    puts "4) Exit"
+    puts "4) Go Back to Casino"
   end
 
-  def user_selection
-    main_menu
+  def user_start
+    main_menu_slots
     choice = gets.to_i
     case choice
     when 1
@@ -44,10 +44,10 @@ class Slots
     when 3
       five_payout
     when 4
-      exit
+      user_selection
     else
       puts "Wrong Input. Try Again"
-      user_selection
+      user_start
     end
   end
 
@@ -67,7 +67,7 @@ class Slots
         if user_input == "y"
           one_payout
         else
-          user_selection
+          user_start
         end
     end
   end
@@ -94,7 +94,7 @@ class Slots
         if user_input == "y"
           three_payout
         else
-          user_selection
+          user_start
         end
     end
   end
@@ -126,6 +126,8 @@ class Slots
       user_input = gets.chomp.to_s
         if user_input == "y"
           five_payout
+        elsif user_input == "n"
+          user_start
         else
           user_selection
         end
@@ -143,7 +145,7 @@ class Slots
       if user_input == "y"
         one_payout
       else
-        user_selection
+        user_start
       end
   end
 
@@ -158,7 +160,7 @@ class Slots
       if user_input == "y"
         three_payout
       else
-        user_selection
+        user_start
       end
   end
 
@@ -173,8 +175,8 @@ class Slots
       if user_input == "y"
         five_payout
       else
-        user_selection
+        user_start
       end
   end
-
+  
 end
