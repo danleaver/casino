@@ -17,12 +17,12 @@ require_relative 'high_low'
 require_relative 'bankroll'
 
 
-puts "Welcome to SLC Casino"
+puts "Welcome to SLC Casino".colorize(:red)
 @bankroll=Bankroll.new
 
 puts "What is your name?"
 user = gets.strip
-puts "Hello #{user} your bankroll is #{@bankroll.rounded_balance} "
+puts "Hello #{user} your bankroll is #{@bankroll.rounded_balance} ".colorize(:yellow)
 
 def main_menu
   puts "1) Play Slots"
