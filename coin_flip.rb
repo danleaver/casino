@@ -8,6 +8,7 @@ require 'colorize'
   def start_game
     place_bet
     heads_or_tails
+    play_again
   end
 
   def place_bet  
@@ -31,20 +32,18 @@ require 'colorize'
     puts "Heads"
     puts "Tails"
 
-    @coin = ['heads', 'tails'].sample
+    @coin = ['heads', 'tails']
 
-    user_choice = gets.downcase
-    puts user_choice
+    @user_choice = gets.strip.downcase
 
-    if @coin == user_choice
-      moneywon = 2 * @bet1
-      puts "WINNER"
-      @bankroll += moneywon
+    if @coin.sample == @user_choice
+      puts "WINNER".colorize(:green)
+      @bankroll.balance += @bet1 * 2
     else
-      puts "You lost"
+      puts "You lost".colorize(:red)
       @bankroll.balance -= @bet1
     end
-  end2
+  end
 
   def play_again
     puts "Would you like to play again? (Y/N)"
