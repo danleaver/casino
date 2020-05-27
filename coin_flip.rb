@@ -8,16 +8,18 @@ require 'colorize'
   def start_game
     place_bet
     heads_or_tails
+    play_again
   end
 
   def place_bet  
+
     puts "You have #{@bankroll.rounded_balance}, place your bet.".colorize(:yellow)
       bet=gets.strip
       @bet1 = Float(bet) rescue false
       until @bet1
         puts "Bet must be a number".colorize(:red)
         bet= gets.strip
-        @bet= Float(bet) rescue false
+        @bet1 = Float(bet) rescue false
       end
         until @bet1<=@bankroll.balance
           puts "You don't have enough money".colorize(:red)
@@ -27,21 +29,29 @@ require 'colorize'
 
   def heads_or_tails
     puts "Chose Heads or Tails".colorize(:blue)
-    puts "1) Heads"
-    puts "2) Tails"
+    puts "Heads"
+    puts "Tails"
 
-    @coin = ['heads', 'tails'].sample
+    @coin = ['heads', 'tails']
 
-    user_choice = gets.downcase
-    puts user_choice
+    @user_choice = gets.strip.downcase
 
-    if @coin == user_choice
-      moneywon = 5 * bet
-      puts "WINNER"
-      @bankroll += moneywon
+    if @coin.sample == @user_choice
+      puts "WINNER".colorize(:green)
+      @bankroll.balance += @bet1 * 2
     else
-      puts "You lost"
-      @bankroll -= bet
+      puts "You lost".colorize(:red)
+      @bankroll.balance -= @bet1
+    end
+  end
+
+  def play_again
+    puts "Would you like to play again? (Y/N)"
+    play=gets.strip.capitalize
+    if play=="Y"
+      start_game
+    else
+        user_selection
     end
   end
 end
