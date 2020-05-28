@@ -51,7 +51,7 @@ require 'colorize'
     if play=="Y"
       start_game
     else
-        user_selection
+        return
     end
   end
 end
