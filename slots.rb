@@ -77,7 +77,7 @@ class Slots
   def three_payout
     @cost_3 = 3.00
     puts "\nSpinning...".colorize(:yellow)
-    @spin = Array.new(3) { Array.new(3) {rand(1..5)} }
+    @spin = Array.new(3) { Array.new(3) {rand(1..4)} }
     if @spin[0][0] == @spin[0][1] && @spin[0][0] == @spin[0][2]
       puts "\nfirst row win"
       winning_set_three
