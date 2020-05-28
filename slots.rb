@@ -14,6 +14,7 @@
 # Payout for win is $25.00
 
 class Slots
+  require 'colorize'
 
   def initialize(bankroll)
     @bankroll = bankroll
@@ -21,10 +22,10 @@ class Slots
 
   def main_menu_slots
     puts "________________________________________________"
-    puts "Welcome to the dollar Slots Area!"
+    puts "Welcome to the dollar Slots Area!".colorize(:blue)
     puts "Winning numbers recieve 5 times the play amount!"
     puts "\n"
-    puts "Your current bankroll is #{@bankroll.rounded_balance}"
+    puts "Your current bankroll is #{@bankroll.rounded_balance}".colorize(:green)
     puts "Select from the following:"
     puts "\n"
     puts "1) Single Payout Slot ($1.00 per spin)"
@@ -54,14 +55,14 @@ class Slots
     # User wagers 1 * bet amount
   def one_payout
     @cost_1 = 1.00
-    puts "\nSpinning..."
+    puts "\nSpinning...".colorize(:yellow)
     @spin = Array.new(3) { Array.new(3) {rand(1..2)} }
     if @spin[1][0] == @spin[1][1] && @spin[1][0] == @spin[1][2]
       puts "middle row win"
       winning_set_one
     else
       @bankroll.balance = @bankroll.balance - @cost_1
-      puts "You lost. Your current bankroll is #{@bankroll.rounded_balance}"
+      puts "You lost. Your current bankroll is #{@bankroll.rounded_balance}".colorize(:red)
       puts "Would you like to spin again? (y/n)"
       user_input = gets.chomp.to_s
         if user_input == "y"
@@ -75,7 +76,7 @@ class Slots
   # User wagers 3 * bet amount      
   def three_payout
     @cost_3 = 3.00
-    puts "\nSpinning..."
+    puts "\nSpinning...".colorize(:yellow)
     @spin = Array.new(3) { Array.new(3) {rand(1..5)} }
     if @spin[0][0] == @spin[0][1] && @spin[0][0] == @spin[0][2]
       puts "\nfirst row win"
@@ -88,7 +89,7 @@ class Slots
       winning_set_three
     else
       @bankroll.balance = @bankroll.balance - @cost_3
-      puts "You lost. Your current bankroll is #{@bankroll.rounded_balance}"
+      puts "You lost. Your current bankroll is #{@bankroll.rounded_balance}".colorize(:red)
       puts "Would you like to spin again? (y/n)"
       user_input = gets.chomp.to_s
         if user_input == "y"
@@ -102,7 +103,7 @@ class Slots
   # User wagers 5 * bet amount
   def five_payout
     @cost_5 = 5.00
-    puts "\nSpinning..."
+    puts "\nSpinning...".colorize(:yellow)
     @spin = Array.new(3) { Array.new(3) {rand(1..5)} }
     if @spin[0][0] == @spin[0][1] && @spin[0][0] == @spin[0][2]
       puts "\nfirst row win"
@@ -121,7 +122,7 @@ class Slots
       winning_set_five
     else
       @bankroll.balance = @bankroll.balance - @cost_5
-      puts "You lost. Your current bankroll is #{@bankroll.rounded_balance}"
+      puts "You lost. Your current bankroll is #{@bankroll.rounded_balance}".colorize(:red)
       puts "Would you like to spin again? (y/n)"
       user_input = gets.chomp.to_s
         if user_input == "y"
@@ -136,10 +137,10 @@ class Slots
 
   def winning_set_one
     @bankroll.balance = @bankroll.balance + (5.00 - @cost_1)
-    puts "\nHere are your winning numbers!\n"
+    puts "\nHere are your winning numbers!\n".colorize(:green)
     puts @spin.to_a.map(&:inspect)
     puts "\n"
-    puts "Your current bankroll is: #{@bankroll.rounded_balance}"
+    puts "Your current bankroll is: #{@bankroll.rounded_balance}".colorize(:green)
     puts "Would you like to spin again? (y/n)"
     user_input = gets.chomp.to_s
       if user_input == "y"
@@ -151,10 +152,10 @@ class Slots
 
   def winning_set_three
     @bankroll.balance = @bankroll.balance + (15.00 - @cost_3)
-    puts "\nHere are your winning numbers!\n"
+    puts "\nHere are your winning numbers!\n".colorize(:green)
     puts @spin.to_a.map(&:inspect)
     puts "\n"
-    puts "Your current bankroll is: #{@bankroll.rounded_balance}"
+    puts "Your current bankroll is: #{@bankroll.rounded_balance}".colorize(:green)
     puts "Would you like to spin again? (y/n)"
     user_input = gets.chomp.to_s
       if user_input == "y"
@@ -166,10 +167,10 @@ class Slots
 
   def winning_set_five
     @bankroll.balance = @bankroll.balance + (25.00 - @cost_5)
-    puts "\nHere are your winning numbers!\n"
+    puts "\nHere are your winning numbers!\n".colorize(:green)
     puts @spin.to_a.map(&:inspect)
     puts "\n"
-    puts "Your current bankroll is: #{@bankroll.rounded_balance}"
+    puts "Your current bankroll is: #{@bankroll.rounded_balance}".colorize(:green)
     puts "Would you like to spin again? (y/n)"
     user_input = gets.chomp.to_s
       if user_input == "y"
