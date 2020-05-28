@@ -162,7 +162,7 @@ def play_again
   if play=="Y"
     play_game
   else
-      user_selection
+      return
   end
 end
 

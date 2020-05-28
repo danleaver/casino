@@ -44,7 +44,7 @@ class Slots
     when 3
       five_payout
     when 4
-      user_selection
+      return
     else
       puts "Wrong Input. Try Again"
       user_start
