@@ -10,7 +10,6 @@ require 'pry'
 
 require_relative 'cards'
 require_relative 'deck'
-require_relative 'dice'
 require_relative 'slots'
 require_relative 'coin_flip'
 require_relative 'high_low'
